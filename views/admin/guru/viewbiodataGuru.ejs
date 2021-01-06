@@ -1,0 +1,70 @@
+<%- include('../../partials/header.ejs') %>
+
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <%- include('../../partials/sidebar.ejs') %>
+
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+
+        <%- include('../../partials/navbar.ejs') %>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+
+          <!-- Content Row -->
+        </div>
+
+        <%- include('biodataGuru.ejs')%>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+
+      <%- include('addbiodataGuru.ejs')%>
+      <!--  -->
+      <%- include('editbiodataGuru.ejs')%>
+      <!-- Footer -->
+      <%- include('../../partials/footer.ejs') %>
+      <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  <!-- Logout Modal-->
+
+  <!-- Bootstrap core JavaScript-->
+</body>
+<!--  -->
+<!--  -->
+<%- include('../../partials/js.ejs') %>
+
+<script>
+  $('#dataTable').on('click', '.button-update1', function () {
+    let id = $(this).data('id');
+    let nip = $(this).data('nip');
+    let nameguru = $(this).data('nameguru');
+    let alamat = $(this).data('alamat');
+    let tanggallahir = $(this).data('tanggallahir');
+    // console.log(id + nis + name + kelas + tempatlahir + tanggallahir + alamat);
+    $('#editbiodata').modal('show');
+    $('.id').val(id);
+    $('.nip').val(nip);
+    $('.nameguru').val(nameguru);
+    $('.alamat').val(alamat);
+    $('.tanggallahir').val(tanggallahir);
+  });
+</script>

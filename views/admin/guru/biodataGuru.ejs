@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="row">
+    <div class="col-10">
+      <h1 class="h3 mb-2 text-gray-800">Biodata Guru</h1>
+      <p class="mb-4"></p>
+    </div>
+
+    <div class="col-2">
+      <a
+        href="#"
+        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+        ><i class="fas fa-download fa-sm text-white-50"></i>Print Out</a
+      >
+    </div>
+  </div>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <!-- <h6 class="m-0 font-weight-bold text-primary">Data</h6> -->
+      <a
+        type="button"
+        data-toggle="modal"
+        data-target="#add-modal"
+        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+      >
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>NIP</th>
+              <th>Nama Guru</th>
+              <th>Alamat</th>
+              <th>Tanggal Lahir</th>
+              <th>Kelas</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i = 0; i < guru.length; i++) { %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><%= guru[i].nip %></td>
+              <td><%= guru[i].nameguru %></td>
+              <td><%= guru[i].alamat %></td>
+              <td><%= guru[i].tanggallahir %></td>
+              <td></td>
+              <form
+                action="/admin/biodataguru/<%= guru[i].id %>?_method=DELETE"
+                method="POST"
+              >
+              <td>
+                <a
+                href="javascript:void()"
+                type="button"
+                class="btn btn-warning btn-circle btn-sm button-update1"
+                data-id="<%= guru[i].id %>"
+                data-nip="<%= guru[i].nip %>"
+                data-nameguru="<%= guru[i].nameguru %>"
+                data-alamat="<%= guru[i].alamat %>"
+                data-tanggallahir="<%= guru[i].tanggallahir %>"
+                >
+                  <i class="fas fa-edit"></i
+                ></a>
+
+                <button type="submit" class="btn btn-danger btn-circle btn-sm">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

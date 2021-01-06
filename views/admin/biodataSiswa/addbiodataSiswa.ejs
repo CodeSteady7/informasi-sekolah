@@ -1,0 +1,101 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="add-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Siswa</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/admin/biodatasiswa" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">NIS</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nis"
+              name="nis"
+              placeholder="NIS"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Enter Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Kelas</label>
+            <input
+              type="text"
+              class="form-control"
+              id="kelas"
+              name="kelas"
+              placeholder="Enter Kelas"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Tempat Lahir</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tempatlahir"
+              name="tempatlahir"
+              placeholder="Enter Tempat Lahir"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Tanggal Lahir</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tanggallahir"
+              name="tanggallahir"
+              placeholder="Enter Tanggal Lahir"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Alamat</label>
+            <input
+              type="text"
+              class="form-control"
+              id="alamat"
+              name="alamat"
+              placeholder="Enter Alamat"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

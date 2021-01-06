@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="row">
+    <div class="col-10">
+      <h1 class="h3 mb-2 text-gray-800">Biodata Siswa</h1>
+      <p class="mb-4"></p>
+    </div>
+
+    <div class="col-2">
+      <a
+        href="#"
+        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+        ><i class="fas fa-download fa-sm text-white-50"></i>Print Out</a
+      >
+    </div>
+  </div>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <!-- <h6 class="m-0 font-weight-bold text-primary">Data</h6> -->
+      <a
+        type="button"
+        class="btn btn-info btn-circle btn-sm"
+        data-toggle="modal"
+        data-target="#add-modal"
+      >
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>NIS</th>
+              <th>Nama</th>
+              <th>Kelas</th>
+              <th>Tempat Lahir</th>
+              <th>Tanggal Lahir</th>
+              <th>Alamat</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i = 0; i < siswa.length; i++) {%>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><%= siswa[i].nis %></td>
+              <td><%= siswa[i].name %></td>
+              <td><%= siswa[i].kelas %></td>
+              <td><%= siswa[i].tempatlahir %></td>
+              <td><%= siswa[i].tanggallahir %></td>
+              <td><%= siswa[i].alamat %></td>
+              <td>
+                <form
+                  action="/admin/biodatasiswa/<%= siswa[i].id %>?_method=DELETE"
+                  method="POST"
+                >
+                  <a
+                    href="javascript:void()"
+                    type="button"
+                    class="btn btn-warning btn-circle btn-sm button-update"
+                    data-id="<%= siswa[i].id %>"
+                    data-nis="<%= siswa[i].nis %>"
+                    data-name="<%= siswa[i].name %>"
+                    data-kelas="<%= siswa[i].kelas %>"
+                    data-tempatlahir="<%= siswa[i].tempatlahir %>"
+                    data-tanggallahir="<%= siswa[i].tanggallahir %>"
+                    data-alamat="<%= siswa[i].alamat %>"
+                  >
+                    <i class="fas fa-edit"></i
+                  ></a>
+                  <button
+                    type="submit"
+                    class="btn btn-danger btn-circle btn-sm"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+              </td>
+            </tr>
+            <%}%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
