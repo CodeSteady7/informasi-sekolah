@@ -7,22 +7,22 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 //
 
-mongoose.connect('mongodb://localhost:27017/biodataSiswa', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: true,
-});
+// mongoose.connect('mongodb://localhost:27017/biodataSiswa', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: true,
+// });
 
-// mongoose.connect(
-//   'mongodb+srv://biodata:07juli2000@cluster0.gkbzn.mongodb.net/biodataSiswa?retryWrites=true&w=majority',
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopologsy: true,
-//     useCreateIndex: true,
-//     useFindAndModify: true,
-//   }
-// );
+mongoose.connect(
+  'mongodb+srv://informasi:Lhokseumawe07@cluster0.emeg3.mongodb.net/informasi?retryWrites=true&w=majority',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopologsy: true,
+    useCreateIndex: true,
+    useFindAndModify: true,
+  }
+);
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
