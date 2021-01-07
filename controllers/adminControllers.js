@@ -1,10 +1,35 @@
 const Siswa = require('../models/siswa');
 const Guru = require('../models/Guru');
 const Users = require('../models/Users');
+const Kelas = require('../models/Kelas');
+const bcrypt = require('bcryptjs');
 
 module.exports = {
   viewLogin: (req, res) => {
     res.render('admin/authentication/Login');
+  },
+
+  actionLogin: async (req, res) => {
+    try {
+      const { username, password } = req.body;
+      const user = await Users.findOne({
+        username: username,
+        password: password,
+      });
+      if (!user) {
+        res.redirect('/admin/login');
+        console.log('User is Undefined');
+      }
+      // const isPasswordMatch = await bcrypt.compare(password, user.password);
+      // if (!isPasswordMatch) {
+      //   console.log('Password tidak cocok');
+      //   console.log('admin/login');
+      // }
+      console.log('Sukses');
+      res.redirect('/admin/biodatasiswa');
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   viewRegister: (req, res) => {
@@ -26,7 +51,7 @@ module.exports = {
         email,
       });
       console.log(Users);
-      res.redirect('/admin/register');
+      res.redirect('/admin/login');
     } catch (error) {
       console.log(error);
     }
@@ -168,7 +193,42 @@ module.exports = {
   //Kelas
   viewKelas: async (req, res) => {
     try {
-      res.render('admin/kelas/viewkelas');
+      // const kelas = await Kelas.find().populate({
+      //   path: 'siswaId',
+      //   select: 'id name',
+      // });
+      const kelas = await Kelas.find();
+      console.log('Hasil', kelas);
+      const siswa = await Siswa.find();
+      // console.log('Siswa : ', siswa);
+      res.render('admin/kelas/viewkelas', {
+        kelas,
+        siswa,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  kelas3A: async (req, res) => {
+    try {
+      const { siswaId, matematika, bahasaindonesia, bahasainggris } = req.body;
+      console.log(req.body);
+      await Kelas.create({
+        siswaId,
+        matematika,
+        bahasaindonesia,
+        bahasainggris,
+      });
+      res.redirect('/admin/kelas');
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  viewraport: async (req, res) => {
+    try {
+      res.render('admin/raport/viewraport');
     } catch (error) {}
   },
 };
